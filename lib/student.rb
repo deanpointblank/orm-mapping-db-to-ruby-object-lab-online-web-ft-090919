@@ -54,7 +54,12 @@ class Student
     sql = <<-SQL
     SELECT *
     FROM students
-    WHERE grade 
+    WHERE NOT grade =12th
+    SQL
+    
+    DB[:conn].execute(sql).map do |row|
+      self.new_from_db(row)
+    end
   end
   
   def save
