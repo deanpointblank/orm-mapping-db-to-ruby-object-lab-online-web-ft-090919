@@ -16,7 +16,8 @@ class Student
       SELECT *
       FROM songs
     SQL
-    DB[:conn].execute(sql).map |row|
+    DB[:conn].execute(sql).map do |row|
+      row
   end
 
   def self.find_by_name(name)
