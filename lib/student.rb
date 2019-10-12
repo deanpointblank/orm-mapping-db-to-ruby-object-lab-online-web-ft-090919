@@ -54,7 +54,8 @@ class Student
     sql = <<-SQL
     SELECT *
     FROM students
-    WHERE NOT grade = "11th"
+    WHERE NOT grade = "12th"
+    GROUP BY grade
     SQL
     
     DB[:conn].execute(sql).map do |row|
